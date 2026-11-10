@@ -1,0 +1,187 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* --- FONDO PERSONALIZADO --- */
+  /* Si quieres que la foto se vea más clara, baja el 0.6 a 0.4 */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/Fondolinks.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* --------------------------- */
+
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedor principal (centra todo en la pantalla) */
+.contenedor {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo circular */
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #333, #111);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Textos */
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  font-size: 14px;
+  color: #e0e0e0;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   ESTILOS DE LOS BOTONES PREMIUM
+   ========================================= */
+.boton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden; 
+  z-index: 1;
+}
+
+/* Efecto de luz al pasar el mouse */
+.boton::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+.boton:hover::before {
+  left: 100%;
+}
+
+.boton:active { 
+  transform: scale(0.96); 
+}
+
+.boton svg { 
+  width: 22px; 
+  height: 22px; 
+  flex-shrink: 0; 
+  transition: transform 0.3s ease;
+}
+.boton:hover svg {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* Botón 1: WhatsApp Grupal (Verde) */
+.whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5);
+}
+.whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.7);
+}
+
+/* Botón 2: WhatsApp Personal (Azul Eléctrico) */
+.whatsapp-personal {
+  background: linear-gradient(135deg, #007BFF 0%, #0011FF 100%);
+  box-shadow: 0 10px 25px -5px rgba(0, 17, 255, 0.5);
+}
+.whatsapp-personal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(0, 17, 255, 0.7);
+}
+
+/* Botón 3: Catálogo (Blanco) */
+.catalogo {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  color: #111;
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.catalogo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(255, 255, 255, 0.5);
+}
+
+/* Pie de página */
+.footer {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #aaa;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 600;
+}
+
+.footer a:hover { color: #fff; }
+
+/* Diseño para celulares */
+@media (max-width: 420px) {
+  h1   { font-size: 22px; }
+  .desc { font-size: 13px; }
+}   
